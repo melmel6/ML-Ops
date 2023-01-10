@@ -3,7 +3,7 @@ import sys
 
 import torch
 
-from data import CorruptMnist
+from data_script import CorruptMnist
 from model import MyAwesomeModel
 
 import matplotlib.pyplot as plt
@@ -58,7 +58,7 @@ class TrainOREvaluate(object):
                 optimizer.step()
                 loss_tracker.append(loss.item())
             print(f"Epoch {epoch+1}/{n_epoch}. Loss: {loss}")        
-        torch.save(model.state_dict(), 'trained_model.pt')
+        torch.save(model.state_dict(), './models/trained_model.pt')
             
         plt.plot(loss_tracker, '-')
         plt.xlabel('Training step')
